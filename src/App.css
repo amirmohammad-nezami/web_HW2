@@ -1,0 +1,162 @@
+/* Layout containers */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f5f6fa;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border-bottom: 1px solid #eaeaea;
+}
+.canvas-title {
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  width: 220px;
+}
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+.import-btn, .export-btn {
+  background: #646cff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.import-btn:hover, .export-btn:hover {
+  background: #535bf2;
+}
+
+.main-content {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.sidebar {
+  width: 120px;
+  background: #fff;
+  border-right: 1px solid #eaeaea;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.sidebar-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.shapes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.shape-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: grab;
+  user-select: none;
+  border: 2px solid transparent;
+  transition: border 0.2s;
+}
+.shape-icon:active {
+  border: 2px solid #646cff;
+}
+.shape-icon.circle {
+  color: #646cff;
+}
+.shape-icon.square {
+  color: #e67e22;
+}
+.shape-icon.triangle {
+  color: #16a085;
+}
+
+.canvas {
+  flex: 1 1 auto;
+  position: relative;
+  background: #fff;
+  margin: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  min-height: 500px;
+  min-width: 400px;
+  overflow: hidden;
+}
+.canvas-shape {
+  position: absolute;
+  /* pointer-events: none; */
+  /* for demo, shapes are not draggable after placed */
+}
+.circle-shape {
+  width: 48px;
+  height: 48px;
+  background: #646cff;
+  border-radius: 50%;
+}
+.square-shape {
+  width: 48px;
+  height: 48px;
+  background: #e67e22;
+  border-radius: 8px;
+}
+.triangle-shape {
+  width: 0;
+  height: 0;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-bottom: 48px solid #16a085;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  background: #fff;
+  border-top: 1px solid #eaeaea;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 700px) {
+  .main-content {
+    flex-direction: column;
+  }
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #eaeaea;
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .canvas {
+    margin: 1rem 0.5rem;
+    min-width: unset;
+    min-height: 300px;
+  }
+}
