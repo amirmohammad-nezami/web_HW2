@@ -1,162 +1,376 @@
-/* Layout containers */
+/* ==========================================================================
+   Layout containers
+   ========================================================================== */
 .app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: rgb(240, 250, 250);
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: rgb(250, 250, 250);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border-bottom: 1px solid rgb(230, 230, 230);
-}
-.canvas-title {
-  font-size: 1.3rem;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  border: 1px solid rgb(220, 220, 220);
-  width: 220px;
-}
-.header-actions {
-  display: flex;
-  gap: 1rem;
-}
-.import-btn, .export-btn {
-  background: rgb(100, 110, 250);
-  color: rgb(250, 250, 250);
-  border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s;
-}
-.import-btn:hover, .export-btn:hover {
-  background: rgb(80, 90, 240);
-}
-
-.main-content {
-  display: flex;
-  flex: 1 1 auto;
-  min-height: 0;
-}
-
-.sidebar {
-  width: 120px;
-  background: rgb(250, 250, 250);
-  border-right: 1px solid rgb(230, 230, 230);
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-.sidebar-title {
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-.shapes-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.shape-icon {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgb(240, 240, 240);
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: grab;
-  user-select: none;
-  border: 2px solid transparent;
-  transition: border 0.2s;
-}
-.shape-icon:active {
-  border: 2px solid rgb(100, 110, 250);
-}
-.shape-icon.circle {
-  color: rgb(100, 110, 250);
-}
-.shape-icon.square {
-  color: rgb(230, 130, 30);
-}
-.shape-icon.triangle {
-  color: rgb(20, 160, 130);
-}
-
-.canvas {
-  flex: 1 1 auto;
-  position: relative;
-  background: rgb(250, 250, 250);
-  margin: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-  min-height: 500px;
-  min-width: 400px;
-  overflow: hidden;
-}
-.canvas-shape {
-  position: absolute;
-  /* pointer-events: none; */
-  /* for demo, shapes are not draggable after placed */
-}
-.circle-shape {
-  width: 48px;
-  height: 48px;
-  background: rgb(100, 110, 250);
-  border-radius: 50%;
-}
-.square-shape {
-  width: 48px;
-  height: 48px;
-  background: rgb(230, 130, 30);
-  border-radius: 8px;
-}
-.triangle-shape {
-  width: 0;
-  height: 0;
-  border-left: 24px solid transparent;
-  border-right: 24px solid transparent;
-  border-bottom: 48px solid rgb(20, 160, 130);
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 0;
-  background: rgb(250, 250, 250);
-  border-top: 1px solid rgb(230, 230, 230);
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-@media (max-width: 700px) {
-  .main-content {
+    display: flex;
     flex-direction: column;
-  }
-  .sidebar {
-    flex-direction: row;
-    width: 100%;
-    border-right: none;
+    min-height: 100vh;
+    background: rgb(240, 250, 250);
+}
+
+/* ==========================================================================
+   Header styles
+   ========================================================================== */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgb(250, 250, 250);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     border-bottom: 1px solid rgb(230, 230, 230);
-    padding: 1rem 0.5rem;
+}
+
+.canvas-title {
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid rgb(220, 220, 220);
+    width: 220px;
+}
+
+.header-actions {
+    display: flex;
     gap: 1rem;
+}
+
+.import-btn, .export-btn {
+    background: rgb(100, 110, 250);
+    color: rgb(250, 250, 250);
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.import-btn:hover, .export-btn:hover {
+    background: rgb(80, 90, 240);
+}
+
+/* ==========================================================================
+   Main content
+   ========================================================================== */
+.main-content {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* ==========================================================================
+   Sidebar styles
+   ========================================================================== */
+.sidebar {
+    width: 120px;
+    background: rgb(250, 250, 250);
+    border-right: 1px solid rgb(230, 230, 230);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.sidebar-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.shapes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.shape-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-  }
-  .canvas {
-    margin: 1rem 0.5rem;
-    min-width: unset;
-    min-height: 300px;
-  }
+    background: rgb(240, 240, 240);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: grab;
+    user-select: none;
+    border: 2px solid transparent;
+    transition: border 0.2s;
+}
+
+.shape-icon:active {
+    border: 2px solid rgb(100, 110, 250);
+}
+
+.shape-icon.circle {
+    color: rgb(100, 110, 250);
+}
+
+.shape-icon.square {
+    color: rgb(230, 130, 30);
+}
+
+.shape-icon.triangle {
+    color: rgb(20, 160, 130);
+}
+
+/* ==========================================================================
+   Canvas styles
+   ========================================================================== */
+.canvas {
+    flex: 1 1 auto;
+    position: relative;
+    background: rgb(250, 250, 250);
+    margin: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    min-height: 500px;
+    min-width: 400px;
+    overflow: hidden;
+}
+
+.canvas-shape {
+    position: absolute;
+}
+
+.circle-shape {
+    width: 48px;
+    height: 48px;
+    background: rgb(100, 110, 250);
+    border-radius: 50%;
+}
+
+.square-shape {
+    width: 48px;
+    height: 48px;
+    background: rgb(230, 130, 30);
+    border-radius: 8px;
+}
+
+.triangle-shape {
+    width: 0;
+    height: 0;
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-bottom: 48px solid rgb(20, 160, 130);
+}
+
+/* ==========================================================================
+   Footer styles
+   ========================================================================== */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0;
+    background: rgb(250, 250, 250);
+    border-top: 1px solid rgb(230, 230, 230);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Authentication styles
+   ========================================================================== */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgb(240, 250, 250);
+    padding: 2rem;
+}
+
+.auth-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: rgb(50, 50, 50);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: rgb(70, 70, 70);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: rgb(100, 110, 250);
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgb(100, 110, 250);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.auth-form button:disabled {
+    background: rgb(180, 180, 180);
+    cursor: not-allowed;
+}
+
+.error {
+    color: rgb(220, 50, 50);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: rgb(100, 110, 250);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+/* ==========================================================================
+   User info and logout
+   ========================================================================== */
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgb(245, 245, 245);
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.logout-btn {
+    background: rgb(220, 50, 50);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+    background: rgb(200, 40, 40);
+}
+
+/* ==========================================================================
+   Save button
+   ========================================================================== */
+.save-btn {
+    background: rgb(20, 160, 130);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.save-btn:hover {
+    background: rgb(15, 140, 110);
+}
+
+.save-btn:disabled {
+    background: rgb(180, 180, 180);
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Saved canvases
+   ========================================================================== */
+.saved-canvases {
+    background: white;
+    margin: 1rem 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.saved-canvases h3 {
+    margin: 0 0 1rem 0;
+    color: rgb(50, 50, 50);
+}
+
+.canvas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.canvas-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgb(245, 245, 245);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.canvas-item:hover {
+    background: rgb(235, 235, 235);
+}
+
+.canvas-item span {
+    font-weight: 500;
+}
+
+.canvas-item small {
+    color: rgb(120, 120, 120);
+}
+
+/* ==========================================================================
+   Responsive design
+   ========================================================================== */
+@media (max-width: 700px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        flex-direction: row;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgb(230, 230, 230);
+        padding: 1rem 0.5rem;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .canvas {
+        margin: 1rem 0.5rem;
+        min-width: unset;
+        min-height: 300px;
+    }
 }
